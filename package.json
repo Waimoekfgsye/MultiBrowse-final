@@ -1,0 +1,43 @@
+{
+  "name": "multibrowse",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "icons": "node scripts/prepare-icons.cjs",
+    "prepackage": "npm run icons && npm run build",
+    "electron:dev": "cross-env NODE_ENV=development electron .",
+    "dist": "npm run prepackage && electron-builder --config electron-builder.json",
+    "dist:win": "npm run prepackage && electron-builder --config electron-builder.json --win",
+    "dist:mac": "npm run prepackage && electron-builder --config electron-builder.json --mac",
+    "dist:linux": "npm run prepackage && electron-builder --config electron-builder.json --linux"
+  },
+  "dependencies": {
+    "framer-motion": "^12.42.2",
+    "lucide-react": "^1.25.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.17",
+    "@types/node": "22.19.17",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.1.1",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3",
+    "vite": "7.3.2",
+    "vite-plugin-singlefile": "2.3.0"
+  },
+  "productName": "MultiBrowse",
+  "description": "Anti-Detect Browser Manager",
+  "author": "MultiBrowse",
+  "main": "electron/main.cjs"
+}

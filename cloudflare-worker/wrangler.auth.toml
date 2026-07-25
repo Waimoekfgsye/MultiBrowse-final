@@ -1,0 +1,29 @@
+name = "api-unrealvfx"
+main = "auth-worker.js"
+compatibility_date = "2024-01-01"
+workers_dev = true
+preview_urls = false
+
+# The address verification / reset / license emails are sent from.
+# This MUST be on a domain you have verified in Resend (Resend → Domains).
+# Sending from an unverified domain gets a 403 back from Resend and no mail
+# goes out. See docs/EMAIL-SETUP.md.
+#
+# Anything on @resend.dev only ever reaches the address that owns the Resend
+# account — it is a sandbox, not a real sender.
+[vars]
+FROM_EMAIL = "MultiBrowse <noreply@waimoe.online>"
+
+# Secrets are NOT stored here. Set them once per environment:
+#   wrangler secret put RESEND_API_KEY --config wrangler.auth.toml
+#   wrangler secret put JWT_SECRET     --config wrangler.auth.toml
+#   wrangler secret put ADMIN_SECRET   --config wrangler.auth.toml
+#
+# Optional, local testing only — returns verification codes in the API
+# response when mail cannot be sent. Never set this in production:
+#   wrangler secret put DEBUG_RETURN_CODES --config wrangler.auth.toml
+
+[[d1_databases]]
+binding = "DB"
+database_name = "multibrowse-db"
+database_id = "6e533d60-f232-4429-87e1-f163c1d0095f"

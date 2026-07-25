@@ -1,0 +1,14 @@
+name = "worker-setup-unrealvfx"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+workers_dev = true
+preview_urls = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "multibrowse-db"
+database_id = "6e533d60-f232-4429-87e1-f163c1d0095f"
+
+[[r2_buckets]]
+binding = "PROFILES_BUCKET"
+bucket_name = "multibrowse-profiles"
